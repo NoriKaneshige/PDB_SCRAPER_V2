@@ -69,7 +69,7 @@ def get_protein_with_short_peptide(num_of_protein_to_check,start_el_num,length_o
 					polymer_title = soup_res.find('pdb')['title']
 					protein_inst = Protein(name,polymer_length,resolution,polymer_description,polymer_title)
 					protein_inst_list.append(protein_inst)
-					csvData_list = [[protein_inst.get_pdb_id(),protein_inst.get_polymer_length(), protein_inst.get_resolution(), protein_inst.get_polymer_description(), protein_inst.get_polymer_title()]]
+					csvData_list = [[protein_inst.get_pdb_id(),min(peptide_length_lst), protein_inst.get_resolution(), protein_inst.get_polymer_description(), protein_inst.get_polymer_title()]]
 					print(csvData_list)
 					print("Saved PDB data: " + id_el)
 					with open(CSV_FILE, 'a') as csvFile:
